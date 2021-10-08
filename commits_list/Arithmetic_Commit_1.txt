@@ -1,0 +1,18 @@
+Arithmetic operations #1 Commit
+(⌐■_■)
+
+I. New files & folders:
+	arithmetic
+		└ s21_arithmetic.c
+	service_functions
+		└ s21_service_functions.c
+
+II. New functions:
+	A) arithmetic/s21_arithmetic.c:
+		1) s21_expended s21_theAddition (s21_decimal numer1, s21_decimal numer2) -- the actual addition function;   
+		2) s21_expended s21_theSubtraction (s21_decimal number1, s21_decimal number2) -- the actual subtraction function;
+		3) s21_expended s21_theMultiplication (s21_decimal number1, s21_decimal number2) -- the actual multiplication function.   
+	B) service_functions/s21_service_functions.c:
+		1) void s21_uninformativeZeroCutterExp (s21_expended* num) -- remove not valuable zeros from the end of the number ;
+		2) void s21_decimalFillerExp (s21_expended* num) -- upgrade scale so the number would take all the decimal potential.
+III. Updated for better clearance tests/s21_inside_tests.

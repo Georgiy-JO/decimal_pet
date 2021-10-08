@@ -1,0 +1,30 @@
+Arithmetic operations #3 Commit
+¯\_(⊙︿⊙)_/¯
+
+I. New functions:
+	A) arithmetic/s21_arithmetic.c:
+✔		1) int s21_add(s21_decimal value1, s21_decimal value2, s21_decimal* result);
+✔		2) int s21_sub(s21_decimal value1, s21_decimal value2, s21_decimal* result);
+✔		3) int s21_mul(s21_decimal value1, s21_decimal value2, s21_decimal* result);
+✔		4) int s21_dev(s21_decimal value1, s21_decimal value2, s21_decimal* result);
+	B) service_functions/s21_error_handler.c:
+		1) char s21_getErrorbits (s21_decimal num) -- get errorbits' code;
+		2) void s21_setErrorbitsOne (s21_decimal* num) -- set errorbits' code to 1 (01);
+		3) void s21_setErrorbitsThree (s21_decimal* num) -- set errorbits' code to 2 (10);
+		4) void s21_setErrorbitsTwo (s21_decimal* num) -- set errorbits' code to 3 (11);
+		5) void s21_resetErrorbits (s21_decimal* num) -- reset errorbits' code (00).
+	C) bit_operations/s21_bit_operations.c:
+		1)char s21_isZeroExp(s21_decimal number) -- check if mantissa of decimal is zero.
+	
+II. Removed functions: 
+	A) service_functions/s21_error_handler.c:
+		1) char s21_getErrorbit (s21_decimal num);
+		2) void s21_setErrorbit (s21_decimal* num);
+		5) void s21_resetErrorbit (s21_decimal* num).
+III. Upgraded files:
+	A) s21_decimal.h;
+	B) New_README.md
+	C) Makefile
+	D) s21_inside_tests.c
+	E) s21_open_tests.c
+

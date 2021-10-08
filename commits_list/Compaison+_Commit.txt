@@ -1,0 +1,72 @@
+Comparison+ Commit
+
+                     ._  ┌─┐
+                     \_`-┴─┴-
+ /'-./\_            ,""       \
+:    ||,>         ,"  ## |   ಠ ಠ.
+ \.-'||        ," ##   ,-\__    `.     AND MY AXE!
+     ||       ,"       /     `--._;)  _____/
+     ||     ,"     ## /        
+    ε||3 ,"   ##    /
+    
+    
+I. New files & folders:
+	comparison
+          └s21_main_comparison.c
+        extra_functions
+          └s21_extra_functions.c
+
+II. New functions:
+	A) comparison/s21_main_comparison.c:
+✔		1) int s21_is_less(s21_decimal num1, s21_decimal num2) -- num1<num2 --> 1, else 0;
+✔		2) int s21_is_less_or_equal(s21_decimal num1, s21_decimal num2) --  num1<=num2 --> 1, else 0;
+✔		3) int s21_is_greater(s21_decimal num1, s21_decimal num2) --  num1>num2 --> 1, else 0;
+✔		4) int s21_is_greater_or_equal(s21_decimal num1, s21_decimal num2) --  num1>=num2 --> 1, else 0;
+✔		5) int s21_is_equal(s21_decimal num1, s21_decimal num2) --  num1=num2 --> 1, else 0;
+✔		6) int s21_is_not_equal(s21_decimal num1, s21_decimal num2) --  num1<>num2 --> 1, else 0;
+✔		7) int s21_compareConverner(s21_decimal num1, s21_decimal num2) --  num1>num2 --> service function to convert decimals into expendeds while doing comparing;
+✔		8) int s21_main_compare (s21_decimal num1, s21_decimal num2) --  num1>num2 --> main compare function, redirects comparison.
+	B) extra_functions/s21_extra_functions.c:
+✔		1) int s21_negate(s21_decimal value, s21_decimal *result) -- returns the result of multiplying the specified Decimal value by negative one;
+✔		2) int s21_truncate(s21_decimal value, s21_decimal* result) -- returns the integral digits of the specified Decimal; any fractional digits are discarded, including trailing zeroes..
+	C) massive_decimal/s21_massive_decimal_bit.c
+		1) char s21_setScaleExp(s21_expended* number, int scale) -- set scale of expended;
+		2) void s21_zeroScaleExp(s21_expended* number) -- set the scale of expended zero;
+		3) int s21_getScaleExp(s21_expended number) -- return the scale of the expended;
+		4) char s21_increseScaleExpUlt(s21_expended* number, int value) -- increase the scale of the expended for value set (positive only);
+		5) char s21_increseScaleExp(s21_expended* number) -- increase the scale of the expended for one;
+		6) char s21_decreseScaleExpUlt(s21_expended* number, int value) -- decrease the scale of the expended for value set (positive only);
+		7) char s21_decreseScaleExp(s21_expended* number) -- increase the scale of the expended for one;
+		8) int s21_mantissaExpFirstBit(s21_expended num) -- return the coordinate of the biggest bit in mantissa. 
+	D) arithmetic/s21_scaling.c:
+		1) void s21_scalingExp (s21_expended* num1, s21_expended* num2) -- the main scaling function #2! I make 2 expendeds have same scale;   
+		2) s21_expended s21_simpleSingleScaleExpAdd(s21_expended num, int add_scale) -- re-scale a expended by ADDing scale, but only if the adding scale is right (no overflow). If add_scale is negative - just cat the number;
+		3) int s21_singleScaleChangeExpIncr(s21_expended *num, int add_scale) -- change the scale of a expended by adding scale, return the delta of input scale and possible scale (58);
+		4) int s21_singleScaleChangeExpDecr(s21_expended *num, int add_scale) -- change the scale of a expended if the adding scale is negative. If the scale is too big,will dismantle the number;
+		5) int s21_rankOfNumberExp (s21_expended num) -- tell how big the expended number is in a terms of ranks;
+		6) int s21_singleScaleExpChange(s21_expended *num, int add_scale) -- choose what function to ask for changing the scale of the expected, depends of if adding scale is positive or negative.
+	E) simple_arithmetic/s21_simple_arithmetic.c:
+		1) s21_expended s21_simpleExpMultiplication (s21_expended num1, s21_expended num2) -- multiply expendeds and return expended, but does not work with signs and scale and overflow (won't tell if overflow). -- more tests might be required ;
+		2) s21_expended s21_simpleExpIntMultiplication (s21_expended num1, int num2) -- multiply expended and int;
+		3) s21_expended s21_simpleExpIntegerDivisionRemainder (s21_expended dividend, s21_expended divider, s21_expended* reminder) -- divide expendeds, return expended, does not work with signs and scale (does not return error when dividing by zero). Divide only the integer part, write remainder into input parameter (9/4 = 2  (rem.: 1)). -- more tests might be required;
+		4) s21_expended s21_simpleDecIntegerDivisionExp(s21_expended dividend, s21_expended divider) -- divide expendeds, return expended, does not work with signs and scale and dividing by zero (divide only the Integer part(9/4 = 2));
+		5) s21_expended s21_simpleIntIntegerDivisionExp (s21_expended dividend, int divider) -- divide expended by int, return expended, does not work with signs and scale and dividing by zero (divide only the Integer part(9/4 = 2)).	
+	F) bit_operations/s21_bit_operations.c:
+		1) int s21_mantissaFirstBit(s21_decimal num) -- return the coordinate of the biggest bit in mantissa.
+III. Changes in existed functions (including minor):
+	A) converters/s21_simple_converters.c:
+		1) s21_decimal s21_takeLastExpToDec (s21_expended num);
+		2) s21_expended s21_decToExp (s21_decimal num).
+	B) bit_operations/s21_bit_operations.c:
+		1) char s21_setScale(s21_decimal* number, int scale).
+	C) simple_arithmetic/s21_simple_arithmetic.c:
+		1) s21_expended s21_simpleDecMultiplicationExpOut (s21_decimal number1, s21_decimal number2);
+		2) s21_decimal s21_simpleDecIntegerDivisionRemainder (s21_decimal dividend, s21_decimal divider, s21_decimal* remainder).
+		3) s21_expended s21_simpleSubstractionExp (s21_expended num1, s21_expended num2);
+		4) s21_expended s21_simpleExpMultiplication (s21_expended num1, s21_expended num2);
+		5) s21_expended s21_simpleAdditionExp (s21_expended num1, s21_expended num2);
+		6) s21_decimal s21_simpleAddition (s21_decimal num1, s21_decimal num2).
+		
+	
+	
+

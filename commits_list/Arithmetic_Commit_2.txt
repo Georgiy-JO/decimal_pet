@@ -1,0 +1,9 @@
+Arithmetic operations #2 Commit
+✖_✖
+
+I. New functions:
+	A) massive_decimal/s21_massive_decimal_bit.c:
+		1) char s21_isZeroExp(s21_expended number) -- check if expended mantissa is zero.
+	B) arithmetic/s21_arithmetic.c:
+		1) s21_expended s21_theDivision (s21_decimal number1, s21_decimal number2) -- the division main code.
+
